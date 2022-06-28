@@ -1,14 +1,12 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 
-import App from 'views/App.js'
+import Root from 'views/Root.js'
 
 import 'index.css'
 
-const Root = createRoot(document.querySelector('#root'))
-
-Root.render(
+createRoot(document.querySelector('#root')).render(
   <React.StrictMode>
-    <App />
+    <Root />
   </React.StrictMode>
 )
