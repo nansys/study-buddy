@@ -1,16 +1,21 @@
 import React from 'react'
+import { ThemeProvider } from 'styled-components'
 
-import UsersList from 'components/UsersList/UsersList.js'
-
-import './Root.css'
+import { Wrapper } from './Root.styles.js'
+import { theme } from 'assets/styles/theme'
+import { GlobalStyle } from 'assets/styles/globalStyle.js'
+import UsersList from 'components/organisms/UsersList/UsersList.js'
 
 class Root extends React.Component {
 
   render() {
     return (
-      <div>
-        <UsersList />
-      </div>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+          <Wrapper>
+            <UsersList />
+          </Wrapper>
+      </ThemeProvider>
     )
   }
 
