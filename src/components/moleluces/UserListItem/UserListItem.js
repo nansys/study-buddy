@@ -7,7 +7,9 @@ import { ReactComponent as DeleteIcon } from 'assets/icons/delete-icon.svg'
 import Average from 'components/atoms/Average/Average.js'
 import Student from 'components/atoms/Student name & average/Student.js'
 
-const UserListItem = ({userData}) => {
+const showIndex = (index) => alert(`This is student ${index+1}`)
+
+const UserListItem = ({userData, index}) => {
 
   const { average, name, attendance = '0%' } = userData
 
@@ -15,7 +17,7 @@ const UserListItem = ({userData}) => {
     <Wrapper>
       <Average>{average}</Average>
       <Student name={name} attendance={attendance}/>
-      <Button><DeleteIcon/></Button>
+      <Button onClick={() => showIndex(index)}><DeleteIcon/></Button>
     </Wrapper>
   )
 

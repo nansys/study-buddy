@@ -7,8 +7,8 @@ import { users } from 'data/users.js'
 const UsersList = () => (
   <Wrapper>
     <StyledList>
-      {users.map((userData) => (
-       <UserListItem key={userData.name} userData={userData} />
+      {users.map((userData, i) => (
+       <UserListItem index={i} key={userData.name} userData={userData} />
       ))}
     </StyledList>
   </Wrapper>

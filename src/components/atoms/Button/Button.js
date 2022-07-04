@@ -2,9 +2,9 @@ import React from 'react'
 
 import { StyledButton } from './Button.styles.js'
 
-const Button = ({children}) => (
+const Button = (props) => (
 
-  <StyledButton>{children}</StyledButton>
+  <StyledButton {...props}></StyledButton>
 
 )
 
