@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const StyledDiv = styled.div`
 
-  background-color: ${({color}) => color && color};
+  background-color: ${() => setColor};
   color: white;
   border-radius: 50px;
   height: 40px;
@@ -18,9 +18,9 @@ const StyledDiv = styled.div`
 `
 
 const setColor = ({children}) => {
-  if(children <= 2.9 ) {
+  if(children <= 2.99 ) {
     return '#bb7875'
-  } else if (children >= 3 && children <= 3.9){
+  } else if (children >= 3 && children <= 3.99){
     return '#d1c67d'
   } else {
     return '#7eb775'
@@ -30,7 +30,7 @@ const setColor = ({children}) => {
 const Average = ({children}) => {
 
   return (
-    <StyledDiv color={setColor}>{children}</StyledDiv>
+    <StyledDiv>{children}</StyledDiv>
   )
 
 }

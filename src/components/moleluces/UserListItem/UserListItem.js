@@ -9,7 +9,7 @@ import Student from 'components/atoms/Student name & average/Student.js'
 
 const showIndex = (index) => alert(`This is student ${index+1}`)
 
-const UserListItem = ({userData, index}) => {
+const UserListItem = ({userData, index, deleteUser}) => {
 
   const { average, name, attendance = '0%' } = userData
 
@@ -17,7 +17,7 @@ const UserListItem = ({userData, index}) => {
     <Wrapper>
       <Average>{average}</Average>
       <Student name={name} attendance={attendance}/>
-      <Button onClick={() => showIndex(index)}><DeleteIcon/></Button>
+      <Button onClick={() => deleteUser(name)}><DeleteIcon/></Button>
     </Wrapper>
   )
 
