@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Wrapper, StyledList } from 'components/organisms/UsersList/UsersList.styles.js'
-import FormField from 'components/moleluces/FormField/FormField.js'
+import Wrapper from 'components/molecules/ListWrapper/ListWrapper.js'
+import FormField from 'components/molecules/FormField/FormField.js'
 import { Button } from 'components/atoms/Button/Button.js'
 
 const Form = ({addUser, inputChange, formValues}) => {

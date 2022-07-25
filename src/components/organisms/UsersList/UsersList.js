@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { Wrapper, StyledList } from './UsersList.styles.js'
-import UserListItem from '../../moleluces/UserListItem/UserListItem.js'
-import FormField from 'components/moleluces/FormField/FormField.js'
-import { Button } from 'components/atoms/Button/Button.js'
+import Wrapper from 'components/molecules/ListWrapper/ListWrapper.js'
+import { StyledList } from './UsersList.styles.js'
+import UserListItem from '../../molecules/UserListItem/UserListItem.js'
 
 const UsersList = ({ users, deleteUser }) => {
 
