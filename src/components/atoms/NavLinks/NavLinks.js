@@ -1,26 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding: 0 30px;
-`
-
-const StyledLink = styled(Link)`
-    text-decoration: none;
-    font-size: ${({theme}) => theme.fontSize.l};
-    font-weight: 600;
-    color: ${({theme}) => theme.colors.darkGrey};
-`
+import { Wrapper, StyledLink } from './NavLinks.styles.js'
 
 const NavLinks = () => (
   <Wrapper>
     <StyledLink to="/">Dashboard</StyledLink>
-    <StyledLink to="/add-user">Settings</StyledLink>
-    <StyledLink to="/add-user">Logout</StyledLink>
+    <StyledLink to="/add-user">Add user</StyledLink>
+    <StyledLink to="/settings">Settings</StyledLink>
+    <StyledLink to="/">Logout</StyledLink>
   </Wrapper>
 )
 

@@ -1,22 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Wrapper from 'components/molecules/ListWrapper/ListWrapper.js'
 import { StyledList } from './UsersList.styles.js'
 import UserListItem from '../../molecules/UserListItem/UserListItem.js'
+import Title from 'components/atoms/Title/Title.js'
 
 const UsersList = ({ users, deleteUser }) => {
 
   return (
     <>
-      <Wrapper>
       <StyledList>
-        <h1>Students list</h1>
+        <Title>Students list</Title>
         {users.map((userData, i) => (
          <UserListItem deleteUser={deleteUser} index={i} key={userData.name} userData={userData} />
         ))}
       </StyledList>
-    </Wrapper>
     </>
   )
 
