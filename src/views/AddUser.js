@@ -6,7 +6,7 @@ import FormField from 'components/molecules/FormField/FormField.js'
 import { Button } from 'components/atoms/Button/Button.js'
 import { UserShape } from 'types'
 import Title from 'components/atoms/Title/Title.js'
-import { UserContext } from './Root'
+import { UserContext } from 'providers/UsersProvider.js'
 
 const initialFormState = {
   name: '',

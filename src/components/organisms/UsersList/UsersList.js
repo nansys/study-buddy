@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { StyledList } from './UsersList.styles.js'
 import UserListItem from '../../molecules/UserListItem/UserListItem.js'
 import Title from 'components/atoms/Title/Title.js'
-import { UserContext } from 'views/Root'
+import { UserContext } from 'providers/UsersProvider.js'
 
 const UsersList = () => {
 

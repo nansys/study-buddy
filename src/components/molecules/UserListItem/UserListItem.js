@@ -7,7 +7,7 @@ import Average from 'components/atoms/Average/Average.js'
 import Student from 'components/atoms/Student name & average/Student.js'
 import { UserShape } from 'types'
 import { Wrapper } from './UserListItem.styles.js'
-import { UserContext } from 'views/Root'
+import { UserContext } from 'providers/UsersProvider.js'
 
 const showIndex = (index) => alert(`This is student ${index+1}`)
 
