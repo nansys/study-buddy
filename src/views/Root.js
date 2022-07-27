@@ -60,7 +60,7 @@ const Root = () => {
             }}
             >
             <Routes>
-              <Route path="/" element={<Dashboard deleteUser={deleteUser} users={users} />}/>
+              <Route path="/" element={<Dashboard />}/>
               <Route path="/add-user" element={<AddUser />}/>
             </Routes>
           </UserContext.Provider>
