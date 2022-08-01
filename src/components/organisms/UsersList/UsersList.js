@@ -23,9 +23,4 @@ const UsersList = () => {
 
 }
 
-UsersList.propTypes = {
-  users: PropTypes.array.isRequired,
-  deleteUser: PropTypes.func.isRequired
-}
-
 export default UsersList

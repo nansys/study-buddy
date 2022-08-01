@@ -20,7 +20,7 @@ const FormField = ({onChange, name, id, type = 'text', label, ...props}) => {
   return (
     <Wrapper>
       <Label htmlFor={id}>{label}</Label>
-      <Input name={name} id="id" type={type} onChange={onChange} />
+      <Input name={name} id={id} type={type} onChange={onChange} placeholder={label} data-test-id={label} />
     </Wrapper>
   )
 }
