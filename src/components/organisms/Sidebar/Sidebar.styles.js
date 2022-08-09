@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SidebarWrapper = styled.div`
+export const SidebarWrapper = styled.nav`
 
   width: 100%;
   height: 100%;
@@ -9,4 +9,6 @@ export const SidebarWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   padding: 30px 0;
+  grid-row: 1 / 3;
+  grid-column: 1 / 1;
 `
