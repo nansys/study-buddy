@@ -1,21 +1,21 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import MainTemplate from 'template/MainTemplate.js'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import MainTemplate from 'components/templates/MainTemplate/MainTemplate.js'
 import Dashboard from './Dashboard'
 import AddUser from './AddUser'
-import UsersProvider from 'providers/UsersProvider.js'
 
 const Root = () => {
   
   return (
     <Router>
       <MainTemplate>
-        <UsersProvider>
-          <Routes>
-            <Route path="/" element={<Dashboard />}/>
-            <Route path="/add-user" element={<AddUser />}/>
-          </Routes>
-        </UsersProvider>
+        <Routes>
+          <Route exact path="/" element={<Navigate to="/dashboard" />} />
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route path=":id" element={<Dashboard />} />
+          </Route>
+          <Route path="/add-user" element={<AddUser />}/>
+        </Routes>
       </MainTemplate>
     </Router>
   )

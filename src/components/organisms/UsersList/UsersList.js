@@ -1,21 +1,24 @@
 import React, { useContext } from 'react'
-import PropTypes from 'prop-types'
+import { useParams } from 'react-router-dom'
 
 import { StyledList } from './UsersList.styles.js'
 import UserListItem from '../../molecules/UserListItem/UserListItem.js'
 import Title from 'components/atoms/Title/Title.js'
-import { UserContext } from 'providers/UsersProvider.js'
+
+import { useStudents } from 'hooks/useStudents.js'
 
 const UsersList = () => {
 
-  const { users } = useContext(UserContext)
+  const { id } = useParams()
+
+  const { students } = useStudents({groupId: id})
 
   return (
     <>
       <StyledList>
         <Title>Students list</Title>
-        {users.map((userData, i) => (
-         <UserListItem index={i} key={userData.name} userData={userData} />
+        {students.map((userData) => (
+         <UserListItem key={userData.id} userData={userData} />
         ))}
       </StyledList>
     </>
