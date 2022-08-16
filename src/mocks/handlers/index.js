@@ -18,5 +18,10 @@ export const handlers = [
     }
 
     return res(ctx.status(200), ctx.json({students}))
+  }),
+  rest.post('/students/search', (req, res, ctx) => {
+
+    const filtered = req.body.searchPhrase ? students.filter((student) => student.name.toLowerCase().includes(req.body.searchPhrase.toLowerCase())) : []
+    return res(ctx.status(200), ctx.json({students: filtered}))
   })
 ]
