@@ -37,15 +37,17 @@ position: relative;
 justify-content: center;
 `
 
-export const StyledViewWrapper = styled(ViewWrapper)`
+export const StyledViewWrapper = styled.ul`
       width: 100%;
-      max-height: 300px;
+      max-height: 500px;
       border-radius: 15px;
       background-color: ${({theme}) => theme.colors.white};
       position: absolute;
+      padding: 0;
       top: 20px;
       display: flex;
       flex-direction: column;
+      list-style: none;
       overflow-y: scroll;
       z-index: 1000;
       box-shadow: 1px 3px 5px rgba(0, 0, 0, .15);
@@ -62,7 +64,16 @@ export const StyledViewWrapper = styled(ViewWrapper)`
       }
 `
 
-export const StyledTitle = styled(Title)`
-  border-bottom: 1px solid ${({theme}) => theme.colors.lightPurple};
-  font-size: 8px;
+export const StyledTitle = styled.li`
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors.darkGrey};
+  background-color: ${({ theme, highlighted }) => highlighted ? theme.colors.lightPurple : theme.colors.white};
+  padding: 20px 50px;
+  width: 100%;
+  &:hover {
+    background-color: 1px solid ${({ theme }) => theme.colors.lightPurple}
+  }
+  &:not(:last-child) {
+    border-bottom: 1px solid ${({theme}) => theme.colors.darkPurple};
+  }
 `
