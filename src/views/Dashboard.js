@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
 import { Link,  useParams, Navigate } from 'react-router-dom'
 import ViewWrapper from 'components/molecules/ViewWrapper/ViewWrapper.js'
@@ -38,8 +38,17 @@ const StyledLink = styled(Link)`
 
 const Dashboard = () => {
 
+  const [groups, setGroups] = useState([])
+
   const { id } = useParams()
-  const { groups } = useStudents()
+  const { getGroups } = useStudents()
+
+  useEffect(() => {
+    (async () => {
+      const groups = await getGroups()
+      setGroups(groups)
+    })()
+  }, [getGroups])
   
   if (!id && groups.length > 0) return <Navigate replace to={`/dashboard/${groups[0]}`} />
 

@@ -7,7 +7,6 @@ justify-content: center;
 position: relative;
 align-items: center;
 
-
 &:not(:last-child)::after {
   content: '';
   position: absolute;

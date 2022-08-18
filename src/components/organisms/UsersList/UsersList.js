@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { StyledList } from './UsersList.styles.js'
@@ -9,9 +9,16 @@ import { useStudents } from 'hooks/useStudents.js'
 
 const UsersList = () => {
 
+  const [students, setStudents] = useState([])
   const { id } = useParams()
+  const { getStudents } = useStudents()
 
-  const { students } = useStudents({groupId: id})
+  useEffect(() => {
+    (async () => {
+      const students = await getStudents(id)
+      setStudents(students)
+    })()
+  }, [getStudents, id])
 
   return (
     <>

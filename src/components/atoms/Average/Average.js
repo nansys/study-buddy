@@ -1,4 +1,5 @@
 import React from 'react'
+import { theme } from 'assets/styles/theme'
 import styled from 'styled-components'
 
 const StyledDiv = styled.div`
@@ -18,12 +19,12 @@ const StyledDiv = styled.div`
 `
 
 const setColor = ({children}) => {
-  if(children <= (2.99 || '2,99') ) {
-    return '#bb7875'
+  if(children <= (2.99 || '2,99' || null) ) {
+    return theme.colors.error
   } else if (children >= (3 || '3') && children <= (3.99 || '3.99')){
-    return '#d1c67d'
+    return theme.colors.warning
   } else {
-    return '#7eb775'
+    return theme.colors.success
   }
 }
 

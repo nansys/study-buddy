@@ -37,8 +37,8 @@ const SearchBar = () => {
       <p><strong>Teacher</strong></p>
     </StatusInfo>
     <InputWrapper {...getComboboxProps()}>
-      <Input {...getInputProps()} id="Search "name="Search" />
-      <StyledViewWrapper isVisible={isOpen} {...getMenuProps()}>
+      <Input {...getInputProps()} id="Search "name="Search" placeholder='Search' />
+      <StyledViewWrapper aria-label="results" isVisible={isOpen} {...getMenuProps()}>
         {isOpen && matchingStudents.map((item, index) => (
           <StyledTitle highlighted={highlightedIndex === index} {...getItemProps({item, index})} key={item.id}>{item.name}</StyledTitle>
           ))}
