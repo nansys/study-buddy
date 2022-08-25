@@ -7,25 +7,25 @@ import Title from 'components/atoms/Title/Title.js'
 
 import { useStudents } from 'hooks/useStudents.js'
 
-const UsersList = () => {
+const UsersList = ({handleOpenStudentDetails}) => {
 
   const [students, setStudents] = useState([])
   const { id } = useParams()
-  const { getStudents } = useStudents()
+  const { getStudentsByGroup } = useStudents()
 
   useEffect(() => {
     (async () => {
-      const students = await getStudents(id)
+      const students = await getStudentsByGroup(id)
       setStudents(students)
     })()
-  }, [getStudents, id])
+  }, [getStudentsByGroup, id])
 
   return (
     <>
       <StyledList>
         <Title>Students list</Title>
         {students.map((userData) => (
-         <UserListItem key={userData.id} userData={userData} />
+         <UserListItem onClick={ () => handleOpenStudentDetails(userData.id)} key={userData.id} userData={userData} />
         ))}
       </StyledList>
     </>

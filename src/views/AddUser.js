@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import ViewWrapper from 'components/molecules/ViewWrapper/ViewWrapper.js'
 import FormField from 'components/molecules/FormField/FormField.js'
-import { Button } from 'components/atoms/Button/Button.js'
+import DeleteButton from 'components/atoms/DeleteButton/DeleteButton.js'
 import Title from 'components/atoms/Title/Title.js'
 import { UserContext } from 'providers/UsersProvider.js'
 import { useForm } from 'hooks/useForm'
@@ -46,7 +46,7 @@ const AddUser = () => {
             <FormField label="Attendance" id="attendance" name="attendance" value={formValues.attendance} onChange={handleInputChange}/>
             <FormField label="Average" id="average" name="average" value={formValues.average} onChange={handleInputChange}/>
             <FormField label="Consent" id="consent" name="consent" type="checkbox" value={formValues.average} onChange={handleToggleConsent}/>
-            <Button type="submit" onSubmit={handleInputChange}>Add</Button>
+            <DeleteButton type="submit" onSubmit={handleInputChange}>Add</DeleteButton>
             {formValues.error ? <p>{formValues.error}</p> : null}
           </form>
       </ViewWrapper>

@@ -4,6 +4,7 @@ const ViewWrapper = styled.div`
   margin: 25px;
   background-color: ${({theme}) => theme.colors.white};
   width: 100%;
+  min-width: 400px;
   max-width: 500px;
   padding: 40px 30px;
   border-radius: 25px;

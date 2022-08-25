@@ -13,9 +13,9 @@ export const useStudents = () => {
     }
     }, [])
 
-  const getStudents = useCallback(async (groupId) => {
+  const getStudentsByGroup = useCallback(async (groupId) => {
     try {
-      const { data } = await axios.get(`/students/${groupId}`)
+      const { data } = await axios.get(`/groups/${groupId}`)
       return data.students
     } catch (e) {
       console.log(e)
@@ -33,5 +33,14 @@ export const useStudents = () => {
     }
   }
 
-  return {getStudents, getGroups, findStudents}
+  const getStudentsById = useCallback(async (studenId) => {
+    try {
+      const result = await axios.get(`/students/${studenId}`)
+      return result.data.students
+    } catch (e) {
+      console.log(e)
+    }
+  }, [])
+
+  return {getStudentsByGroup, getGroups, findStudents, getStudentsById}
 }

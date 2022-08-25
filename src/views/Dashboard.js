@@ -1,47 +1,24 @@
-import React, {useState, useEffect} from 'react'
-import styled from 'styled-components'
-import { Link,  useParams, Navigate } from 'react-router-dom'
+import React, {useState, useEffect, useCallback} from 'react'
+import { useParams, Navigate } from 'react-router-dom'
 import ViewWrapper from 'components/molecules/ViewWrapper/ViewWrapper.js'
 import UsersList from 'components/organisms/UsersList/UsersList.js'
-import Title from 'components/atoms/Title/Title'
+
+import { Wrapper, TitleWrapper, StyledTitle, StyledLink } from './Dashboard.styles.js'
 
 import { useStudents } from 'hooks/useStudents.js'
+import useModal from 'components/organisms/Modal/useModal.js'
+import Modal from 'components/organisms/Modal/Modal.js'
 
-const Wrapper = styled.div`
-`
+import StudentDetails from 'components/molecules/StudentDetails/StudentDetails.js'
 
-const TitleWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 30px;
-`
-
-const StyledTitle = styled(Title)`
-    margin-right: 15px;
-    color: ${({theme}) => theme.colors.darkGrey};
-`
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  border-radius: 50%;
-  padding: 10px;
-  background-color: white;
-  color: ${({theme}) => theme.colors.darkGrey};
-  font-size: ${({ theme }) => theme.fontSize.l};
-  font-weight: 800;
-  margin-right: 15px;
-
-  &:active {
-    background-color: ${({ theme }) => theme.colors.lightPurple};
-  }
-`
 
 const Dashboard = () => {
 
+  const { isOpen, handleOpenModal, handleCloseModal } = useModal()
+  const [currentStudent, setCurrentStudent] = useState({})
   const [groups, setGroups] = useState([])
-
   const { id } = useParams()
-  const { getGroups } = useStudents()
+  const { getGroups, getStudentsById } = useStudents()
 
   useEffect(() => {
     (async () => {
@@ -49,6 +26,12 @@ const Dashboard = () => {
       setGroups(groups)
     })()
   }, [getGroups])
+
+  const handleOpenStudentDetails = async (id) => {
+    const student = await getStudentsById(id)
+    setCurrentStudent(student)
+    handleOpenModal(true)
+  }
   
   if (!id && groups.length > 0) return <Navigate replace to={`/dashboard/${groups[0]}`} />
 
@@ -63,7 +46,10 @@ const Dashboard = () => {
         </nav>
       </TitleWrapper>
       <ViewWrapper>
-        <UsersList />
+        <UsersList handleOpenStudentDetails={handleOpenStudentDetails} />
+          <Modal isOpen={isOpen} handleClose={handleCloseModal}>
+            <StudentDetails student={currentStudent} />
+          </Modal>
       </ViewWrapper>
     </Wrapper>
   )

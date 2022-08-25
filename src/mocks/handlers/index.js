@@ -7,17 +7,24 @@ export const handlers = [
   rest.get('/groups', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(groups))
   }),
-  rest.get(`/students/:group`, (req, res, ctx) => {
+  rest.get(`/groups/:id`, (req, res, ctx) => {
 
-    if (req.params.group && req.params.group !== 'undefined') {
+    if (req.params.id && req.params.id !== 'undefined') {
       const filtered = students.filter((student) => {
-        return req.params.group === student.group
+        return req.params.id === student.group
         
       })
       return res(ctx.status(200), ctx.json({students: filtered}))
     }
 
     return res(ctx.status(200), ctx.json({students}))
+  }),
+  rest.get('/students/:id', (req, res, ctx) => {
+
+    const filtered = req.params.id ? students.find((student) => student.id === req.params.id ) : null
+
+    return res(ctx.status(200), ctx.json({students: filtered}))
+
   }),
   rest.post('/students/search', (req, res, ctx) => {
 

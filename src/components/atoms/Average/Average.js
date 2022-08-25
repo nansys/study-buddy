@@ -2,9 +2,14 @@ import React from 'react'
 import { theme } from 'assets/styles/theme'
 import styled from 'styled-components'
 
-const StyledDiv = styled.div`
+const Average = styled.div`
 
-  background-color: ${() => setColor};
+background: ${({ theme, value }) => {
+    if (value > 4) return theme.colors.success;
+    if (value > 3) return theme.colors.warning;
+    if (value > 1) return theme.colors.error;
+    return theme.colors.grey;
+  }};
   color: white;
   border-radius: 50px;
   height: 40px;
@@ -14,26 +19,6 @@ const StyledDiv = styled.div`
   justify-content: center;
   font-weight: bold;
   font-size: ${({theme}) => theme.fontSize.m};
-  position: absolute;
-  left: 0;
 `
-
-const setColor = ({children}) => {
-  if(children <= (2.99 || '2,99' || null) ) {
-    return theme.colors.error
-  } else if (children >= (3 || '3') && children <= (3.99 || '3.99')){
-    return theme.colors.warning
-  } else {
-    return theme.colors.success
-  }
-}
-
-const Average = ({children}) => {
-
-  return (
-    <StyledDiv>{children}</StyledDiv>
-  )
-
-}
 
 export default Average 

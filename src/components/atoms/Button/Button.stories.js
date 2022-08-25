@@ -1,12 +1,12 @@
-import { Button } from './Button.js'
+import { DeleteButton } from './Button.js'
 
 export default {
   title: 'Components/Atoms/Button',
-  component: Button,
+  component: DeleteButton,
 
 }
 
-const Template = (args) => <Button {...args}>Read more</Button>
+const Template = (args) => <DeleteButton {...args}>Read more</DeleteButton>
 
 export const Default = Template.bind({})
 Default.args = {
