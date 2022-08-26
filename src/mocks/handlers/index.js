@@ -2,8 +2,13 @@ import { rest } from 'msw'
 
 import { students } from 'mocks/data/students.js'
 import { groups } from 'mocks/data/groups.js'
+import { db } from 'mocks/db.js'
 
 export const handlers = [
+  rest.get('/fruits', (req, res, ctx) => {
+    const fruits = db.fruit.getAll()
+    return res(ctx.status(200), ctx.json(fruits))
+  }),
   rest.get('/groups', (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(groups))
   }),

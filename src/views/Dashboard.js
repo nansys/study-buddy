@@ -10,6 +10,7 @@ import useModal from 'components/organisms/Modal/useModal.js'
 import Modal from 'components/organisms/Modal/Modal.js'
 
 import StudentDetails from 'components/molecules/StudentDetails/StudentDetails.js'
+import axios from 'axios'
 
 
 const Dashboard = () => {
@@ -25,6 +26,7 @@ const Dashboard = () => {
       const groups = await getGroups()
       setGroups(groups)
     })()
+    axios.get('/fruits').then((res) => console.log(res))
   }, [getGroups])
 
   const handleOpenStudentDetails = async (id) => {
