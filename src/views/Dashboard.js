@@ -26,7 +26,6 @@ const Dashboard = () => {
       const groups = await getGroups()
       setGroups(groups)
     })()
-    axios.get('/fruits').then((res) => console.log(res))
   }, [getGroups])
 
   const handleOpenStudentDetails = async (id) => {
@@ -55,7 +54,6 @@ const Dashboard = () => {
       </ViewWrapper>
     </Wrapper>
   )
-
 }
 
 export default Dashboard

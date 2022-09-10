@@ -15,7 +15,7 @@ const UsersList = ({handleOpenStudentDetails}) => {
 
   useEffect(() => {
     (async () => {
-      const students = await getStudentsByGroup(id)
+      const students = await getStudentsByGroup(id.toUpperCase())
       setStudents(students)
     })()
   }, [getStudentsByGroup, id])
