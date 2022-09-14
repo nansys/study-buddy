@@ -16,7 +16,7 @@ export const auth = [
         }
       }
     })
-    if(req.body.password === user.password) {
+    if(user && user.password === req.body.password) {
       const token = btoa(user.login)
       localStorage.setItem('__be_token__', token)
       return res(ctx.status(200), ctx.json({...sanitizeUser, token}))

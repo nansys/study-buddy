@@ -6,20 +6,20 @@ import UsersList from 'components/organisms/UsersList/UsersList.js'
 import { Wrapper, TitleWrapper, StyledTitle, StyledLink } from './Dashboard.styles.js'
 
 import { useStudents } from 'hooks/useStudents.js'
+
 import useModal from 'components/organisms/Modal/useModal.js'
 import Modal from 'components/organisms/Modal/Modal.js'
 
 import StudentDetails from 'components/molecules/StudentDetails/StudentDetails.js'
-import axios from 'axios'
 
 
 const Dashboard = () => {
 
   const { isOpen, handleOpenModal, handleCloseModal } = useModal()
   const [currentStudent, setCurrentStudent] = useState({})
+  const { getGroups, getStudentsById } = useStudents()
   const [groups, setGroups] = useState([])
   const { id } = useParams()
-  const { getGroups, getStudentsById } = useStudents()
 
   useEffect(() => {
     (async () => {

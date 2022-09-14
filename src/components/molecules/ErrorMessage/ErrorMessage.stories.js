@@ -1,11 +1,19 @@
 import ErrorMessage from './ErrorMessage.js'
+import styled from 'styled-components'
+
+const Wrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow-y: hidden !important;
+`
 
 export default {
   title: 'Component/Molecules/ErrorMessage',
   component: ErrorMessage
 }
 
-const Template = (args) => <ErrorMessage {...args} />
+const Template = (args) => <Wrapper><ErrorMessage {...args} /></Wrapper>
 
 export const Default = Template.bind({})
 

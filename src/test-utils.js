@@ -1,11 +1,11 @@
 import React from 'react'
 import { render } from '@testing-library/react'
-import { ThemeProvider } from 'styled-components'
 import { theme } from 'assets/styles/theme.js'
+import AppProviders from 'providers/AppProviders'
 
 export const AllTheProviders = ({children}) => {
   return (
-    <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    <AppProviders theme={theme}>{children}</AppProviders>
   )
 }
 

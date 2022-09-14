@@ -1,6 +1,8 @@
 import { factory, primaryKey } from '@mswjs/data'
 import { faker } from '@faker-js/faker'
 
+faker.seed(1456)
+
 const group = ['A', 'B', 'C']
 const getRandomGroup = (index) => group[index]
 
