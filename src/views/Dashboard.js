@@ -11,6 +11,8 @@ import useModal from 'components/organisms/Modal/useModal.js'
 import Modal from 'components/organisms/Modal/Modal.js'
 
 import StudentDetails from 'components/molecules/StudentDetails/StudentDetails.js'
+import { DisplayEvents, DisplayEventsData } from 'hoc/withEventsData.js'
+import EventsProvider from 'providers/EventsProvider.js'
 
 
 const Dashboard = () => {
@@ -52,6 +54,9 @@ const Dashboard = () => {
             <StudentDetails student={currentStudent} />
           </Modal>
       </ViewWrapper>
+      <EventsProvider group="A">
+        {(props) => <DisplayEvents events={props}/>}
+      </EventsProvider>
     </Wrapper>
   )
 }
