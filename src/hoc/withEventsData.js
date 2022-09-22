@@ -1,29 +1,26 @@
-import axios from 'axios'
 import React from 'react'
+import axios from 'axios'
 
-const withEventsData = (WrappedComponent, group) => {
-
-  return function WithEventsDataWrapper() {
+const WithEventsData = (WrappedComponent, group) => {
+  return function WithEventsDataWrapped() {
     const [events, setEvents] = React.useState([])
-  
+
     React.useEffect(() => {
       axios.get(`/events/${group}`)
       .then(({data: {events}}) => setEvents(events))
-    }, [])
-  
-    return <WrappedComponent events={events} />
-  
-  }
+    }, [group])
 
+    return <WrappedComponent events={events} />
+  }
 }
 
-export const DisplayEvents = (props) => {
+export const DisplayEvents = ({events}) => {
   return (
     <div>
-      Log events
-      {console.log(props)}
+      log events
+      {console.log(events)}
     </div>
   )
 }
 
-export const DisplayEventsData = withEventsData(DisplayEvents, 'A')
+export const DisplayEventsData = WithEventsData(DisplayEvents, 'A')

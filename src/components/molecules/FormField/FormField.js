@@ -16,11 +16,11 @@ const Wrapper = styled.div`
 
 `
 
-const FormField = React.forwardRef(({onChange, name, id, type = 'text', label, ...props}, ref) => {
+const FormField = React.forwardRef(({onChange, name, id, type = 'text', isTextarea, label, ...props}, ref) => {
   return (
     <Wrapper>
       <Label htmlFor={id}>{label}</Label>
-      <Input name={name} id={id} type={type} onChange={onChange} data-testid={label} {...props} ref={ref}/>
+      {isTextarea ? <Input as="textarea" name={name} id={id} type={type} onChange={onChange} ref={ref} {...props}/> : <Input name={name} id={id} type={type} onChange={onChange} data-testid={label} ref={ref}/>}
     </Wrapper>
   )
 })

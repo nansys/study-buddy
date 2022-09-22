@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form"
 import { useAuth } from 'hooks/useAuth'
 import ErrorMessage from 'components/molecules/ErrorMessage/ErrorMessage'
 import { useError } from 'hooks/useError'
+import Notes from './Notes'
 
 const AuthenticatedApp = () => {
   return (
@@ -20,6 +21,7 @@ const AuthenticatedApp = () => {
           <Route path="/dashboard" element={<Dashboard />}>
           <Route path=":id" element={<Dashboard />} />
           </Route>
+          <Route path="/notes" element={<Notes />} />
           <Route path="/add-user" element={<AddUser />}/>
         </Routes>
       </Wrapper>

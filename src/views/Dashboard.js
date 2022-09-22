@@ -54,9 +54,10 @@ const Dashboard = () => {
             <StudentDetails student={currentStudent} />
           </Modal>
       </ViewWrapper>
-      <EventsProvider group="A">
+      {/* <EventsProvider group="A">
         {(props) => <DisplayEvents events={props}/>}
-      </EventsProvider>
+      </EventsProvider> */}
+      <DisplayEventsData />
     </Wrapper>
   )
 }

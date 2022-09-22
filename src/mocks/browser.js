@@ -3,8 +3,9 @@ import { handlers } from './handlers'
 import { db } from 'mocks/db.js'
 import { auth } from './handlers/auth'
 import { events } from './handlers/events'
+import { notes } from './handlers/notes'
 
-export const worker = setupWorker(...handlers, ...auth, ...events)
+export const worker = setupWorker(...handlers, ...auth, ...events, ...notes)
 
 const createStudents = () => {
   for(let i = 0; i < 16; i++) {
@@ -15,6 +16,9 @@ const createStudents = () => {
 
 db.groups.create()
 db.teacher.create()
+
+db.note.create()
+db.note.create()
 
 createStudents()
 

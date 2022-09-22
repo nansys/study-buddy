@@ -8,6 +8,7 @@ const NavLinks = () => {
   return (
     <Wrapper>
       <StyledLink to="/dashboard">Dashboard</StyledLink>
+      <StyledLink to="/notes">Notes</StyledLink>
       <StyledLink to="/add-user">Add user</StyledLink>
       <StyledLink to="/settings">Settings</StyledLink>
       <StyledLink as="a" onClick={auth.signOut}>Logout</StyledLink>
